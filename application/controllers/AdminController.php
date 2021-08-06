@@ -200,7 +200,7 @@ class AdminController extends Controller
 			$response['command'] = $_POST['cmd'];
 			$response['response'] = $this->model->sendRCON($this->route['id'], $_POST['cmd']);
 			header('Content-Type: application/json');
-			exit(json_encode($response));
+			exit(json_encode($response, JSON_UNESCAPED_UNICODE));
 		}
 	}
 }

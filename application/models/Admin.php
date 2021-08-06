@@ -215,10 +215,8 @@ class Admin extends Model
 	}
 
 	public function parseMinecraftColors($string)
-	{
-		$string = utf8_decode(htmlspecialchars($string, ENT_QUOTES, "UTF-8"));
-		$string = preg_replace('/\xA7([0-9a-f])/i', '<span class="mc-color mc-$1">', $string, -1, $count) . str_repeat("</span>", $count);
-		return utf8_encode(preg_replace('/\xA7([k-or])/i', '<span class="mc-$1">', $string, -1, $count) . str_repeat("</span>", $count));
+	{		
+		return preg_replace('/§./', '', $string);
 	}
 
 	public function sendRCON($id, $cmd)

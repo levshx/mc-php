@@ -9,7 +9,7 @@
             <img src="/public/materials/posts/<?php echo $val['id']; ?>.jpg" class="img-fluid" alt="Responsive image" width="653">
             <hr>            
             <span class="subheading"><?php echo htmlspecialchars($val['description'], ENT_QUOTES); ?></span>
-            <p><?php echo htmlspecialchars($val['text'], ENT_QUOTES); ?></p>
+            <p><?php echo $val['text']; ?></p>
         </div>
         <hr>
     <?php endforeach; ?>
