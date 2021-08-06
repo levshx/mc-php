@@ -1,6 +1,7 @@
 <?php
 
 namespace application\lib;
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 
 use PDO;
 

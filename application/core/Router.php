@@ -1,7 +1,7 @@
 <?php
 
 namespace application\core;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\View;
 
 class Router {

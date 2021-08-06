@@ -1,5 +1,5 @@
 <?php
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 return [
 	// MainController
 	'' => [
@@ -10,13 +10,13 @@ return [
 		'controller' => 'main',
 		'action' => 'index',
 	],
-	'about' => [
+	'rules' => [
 		'controller' => 'main',
-		'action' => 'about',
+		'action' => 'rules',
 	],
-	'contact' => [
+	'servers' => [
 		'controller' => 'main',
-		'action' => 'contact',
+		'action' => 'servers',
 	],
 	// USER ROUTES
 	'login' => [
@@ -43,6 +43,10 @@ return [
 	'admin/logout' => [
 		'controller' => 'admin',
 		'action' => 'logout',
+	],
+	'admin' => [
+		'controller' => 'admin',
+		'action' => 'index',
 	],
 	'admin/addPost' => [
 		'controller' => 'admin',

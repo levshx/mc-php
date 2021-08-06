@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <div class="head-block">
     <div class="row">
         <div class="col-lg-4">

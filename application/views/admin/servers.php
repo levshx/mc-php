@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <div class="content-wrapper">
     <div class="container-fluid">
         <div class="card mb-3">

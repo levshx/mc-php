@@ -1,7 +1,7 @@
 <?php
 
 namespace application\controllers;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Controller;
 
 class UserController extends Controller {

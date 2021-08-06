@@ -1,5 +1,5 @@
 <?php
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 return [
 	'all' => [
 		'login',
@@ -11,6 +11,7 @@ return [
 		//
 	],
 	'admin' => [
+		'index',
 		'posts',
 		'logout',
 		'addPost',
@@ -22,6 +23,6 @@ return [
 		'addServer',
 		'editServer',
 		'deleteServer',	
-		'rcon',		
+		'rcon',					
 	],
 ];

@@ -2,6 +2,8 @@
 
 namespace application\lib;
 
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
+
 class Pagination {
     
     private $max = 10;

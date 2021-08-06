@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <div class="content-wrapper">
     <div class="container-fluid">
         <div class="card mb-3">
@@ -17,8 +18,8 @@
                         <textarea class="form-control" rows="3" name="text"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Изображение</label>
-                        <input class="form-control" type="file" name="img">
+                        <label>Изображение (.jpg):</label>
+                        <input class="form-control" type="file" name="img" accept="image/jpeg">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                 </form>

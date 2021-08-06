@@ -1,57 +1,67 @@
 <?php
 
 namespace application\controllers;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Controller;
 use application\lib\Pagination;
 use application\models\Main;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
-	public function __construct($route) {
+	public function __construct($route)
+	{
 		parent::__construct($route);
 		$this->view->layout = 'admin';
 	}
 
 	/**
-     * Обработка входа в Админ Панель.
-     */
-	public function loginAction() {
+	 * Обработка входа в Админ Панель.
+	 */
+	public function loginAction()
+	{
 		if (isset($_SESSION['admin'])) {
-			$this->view->redirect('admin/add');
+			$this->view->redirect('admin/');
 		}
 		if (!empty($_POST)) {
 			if (!$this->model->loginValidate($_POST)) {
 				$this->view->message('error', $this->model->error);
 			}
 			$_SESSION['admin'] = true;
-			$this->view->location('admin/add');
+			$this->view->location('admin/');
 		}
 		$this->view->render('Вход');
 	}
 
 	/**
-     * Обработка запроса выхода из админ панели.
-     */
-	public function logoutAction() {
+	 * Обработка запроса выхода из админ панели.
+	 */
+	public function logoutAction()
+	{
 		unset($_SESSION['admin']);
-		$this->view->redirect('admin/login');
+		$this->view->redirect('main/index/1');
+	}
+
+	public function indexAction()
+	{
+		$this->view->render('Панель Администратора');
 	}
 
 	/**
-     * Обработка запроса добавления поста.
-     */
-	public function addPostAction() {
+	 * Обработка запроса добавления поста.
+	 */
+	public function addPostAction()
+	{
 		if (!empty($_POST)) {
 			if (!$this->model->postValidate($_POST, 'add')) {
 				$this->view->message('error', $this->model->error);
 			}
-			
+
 			$id = $this->model->postAdd($_POST);
-			
+
 			if (!$id) {
 				$this->view->message('error', 'Ошибка обработки запроса');
-			}			
+			}
 			$this->model->postUploadImage($_FILES['img']['tmp_name'], $id);
 			$this->view->message('success', 'Пост добавлен');
 		}
@@ -59,9 +69,10 @@ class AdminController extends Controller {
 	}
 
 	/**
-     * Обработка запроса редактирования поста.
-     */
-	public function editPostAction() {
+	 * Обработка запроса редактирования поста.
+	 */
+	public function editPostAction()
+	{
 		if (!$this->model->isPostExists($this->route['id'])) {
 			$this->view->errorCode(404);
 		}
@@ -82,9 +93,10 @@ class AdminController extends Controller {
 	}
 
 	/**
-     * Обработка запроса удаления поста.
-     */
-	public function deletePostAction() {
+	 * Обработка запроса удаления поста.
+	 */
+	public function deletePostAction()
+	{
 		if (!$this->model->isPostExists($this->route['id'])) {
 			$this->view->errorCode(404);
 		}
@@ -93,9 +105,10 @@ class AdminController extends Controller {
 	}
 
 	/**
-     * Обработка запроса вывода постов.
-     */
-	public function postsAction() {
+	 * Обработка запроса вывода постов. Используется модель Main.
+	 */
+	public function postsAction()
+	{
 		$mainModel = new Main;
 		$pagination = new Pagination($this->route, $mainModel->postsCount());
 		$vars = [
@@ -106,33 +119,88 @@ class AdminController extends Controller {
 	}
 
 	/**
-     * Обработка запроса вывода серверов.
-     */
-	public function serversAction() {
-		$vars = [			
-			'list' => $this->model->getServers()
+	 * Обработка запроса вывода серверов.
+	 */
+	public function serversAction()
+	{
+		$mainModel = new Main;
+		$vars = [
+			'list' => $mainModel->serversList()
 		];
 		$this->view->render('Сервера', $vars);
 	}
 
 	/**
-     * Обработка запроса вывода серверов.
-     */
-	public function addServerAction() {
+	 * Обработка запроса вывода серверов.
+	 */
+	public function addServerAction()
+	{
 		if (!empty($_POST)) {
-			if (!$this->model->postValidate($_POST, 'add')) {
+			if (!$this->model->serverValidate($_POST, 'add')) {
 				$this->view->message('error', $this->model->error);
 			}
-			
-			$id = $this->model->postAdd($_POST);
-			
+			$id = $this->model->serverAdd($_POST);
 			if (!$id) {
-				$this->view->message('error', 'Ошибка обработки запроса');
-			}			
-			$this->model->postUploadImage($_FILES['img']['tmp_name'], $id);
-			$this->view->message('success', 'Пост добавлен');
+				$this->view->message('error', 'Ошибка обработки запроса (Мейба добавилось чекни)');
+			}
+			$this->model->ServerUploadImage($_FILES['img']['tmp_name'], $id);
+			$this->view->message('success', 'Сервер добавлен');
 		}
 		$this->view->render('Добавить сервер');
 	}
 
+	/**
+	 * Обработка запроса удаления сервера.
+	 */
+	public function deleteServerAction()
+	{
+		if (!$this->model->isServerExists($this->route['id'])) {
+			$this->view->errorCode(404);
+		}
+		$this->model->serverDelete($this->route['id']);
+		$this->view->redirect('admin/servers');
+	}
+
+	/**
+	 * Обработка запроса редактирования сервера.
+	 */
+	public function editServerAction()
+	{
+		if (!$this->model->isServerExists($this->route['id'])) {
+			$this->view->errorCode(404);
+		}
+		if (!empty($_POST)) {
+			if (!$this->model->serverValidate($_POST, 'edit')) {
+				$this->view->message('error', $this->model->error);
+			}
+			$this->model->serverEdit($_POST, $this->route['id']);
+			if ($_FILES['img']['tmp_name']) {
+				$this->model->serverUploadImage($_FILES['img']['tmp_name'], $this->route['id']);
+			}
+			$this->view->message('success', 'Сохранено');
+		}
+		$vars = [
+			'data' => $this->model->serverData($this->route['id']),
+		];
+		$this->view->render('Редактировать пост', $vars);
+	}
+
+	/**
+	 * RCON
+	 */
+	public function rconAction()
+	{
+		if (!isset($_POST['cmd'])) {
+			$data = $this->model->serverData($this->route['id']);
+			$id = $this->route['id'];
+			require_once('rcon/index.php');
+			exit();
+		} else {
+			$response['status'] = 'success';
+			$response['command'] = $_POST['cmd'];
+			$response['response'] = $this->model->sendRCON($this->route['id'], $_POST['cmd']);
+			header('Content-Type: application/json');
+			exit(json_encode($response));
+		}
+	}
 }

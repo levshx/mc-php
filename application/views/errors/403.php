@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

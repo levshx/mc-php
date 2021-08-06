@@ -1,10 +1,10 @@
 <?php
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 return [
 	'all' => [
 		'index',
-		'about',
-		'contact',
+		'rules',
+		'servers',
 	],
 	'authorize' => [
 

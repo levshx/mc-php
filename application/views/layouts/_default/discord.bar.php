@@ -1,1 +1,2 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <iframe src="https://discord.com/widget?id=815646257707089930&theme=light" width="296" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>

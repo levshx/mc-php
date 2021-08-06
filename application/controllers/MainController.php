@@ -1,10 +1,10 @@
 <?php
 
 namespace application\controllers;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Controller;
 use application\lib\Pagination;
-use application\models\Admin;
+
 
 class MainController extends Controller {
 
@@ -17,8 +17,15 @@ class MainController extends Controller {
 		$this->view->render('Главная страница', $vars);
 	}
 
-	public function aboutAction() {
-		$this->view->render('Инфа');
+	public function serversAction() {
+		$vars = [			
+			'list' => $this->model->getServersInfo(),
+		];
+		$this->view->render('Сервера', $vars);
+	}
+
+	public function rulesAction() {
+		$this->view->render('Правила');
 	}
 
 }

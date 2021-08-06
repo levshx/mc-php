@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <div class="content-wrapper">
     <div class="container-fluid">
         <div class="card mb-3">
@@ -52,8 +53,15 @@
                         <input class="form-control" type="text" name="rcon_password">
                     </div>
                     <div class="form-group">
+                        <label>Видимость сервера:</label><br>
+                        <input type="radio" id="on" name="visibility" value="1" checked>
+                        <label for="on">Включена</label><br>
+                        <input type="radio" id="off" name="visibility" value="0">
+                        <label for="off">Выключена</label><br>
+                    </div>
+                    <div class="form-group">
                         <label>Иконка сервера (.jpg):</label>
-                        <input class="form-control" type="file" name="img">
+                        <input class="form-control" type="file" name="img" accept="image/jpeg">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                 </form>

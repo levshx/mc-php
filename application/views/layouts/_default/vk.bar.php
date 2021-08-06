@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <h5 style="text-align: center;padding-top: 20px;">Группа ВК</h5>
 
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>

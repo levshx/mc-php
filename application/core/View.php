@@ -1,7 +1,7 @@
 <?php
 
 namespace application\core;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 class View {
 
 	public $path;

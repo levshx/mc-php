@@ -9,8 +9,9 @@
  * @link https://github.com/thedudeguy/PHP-Minecraft-Rcon
  */
 
-namespace Minecraft;
+namespace application\lib;
 
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 /**
  * RCON Class ;
  * connect():true/false ;

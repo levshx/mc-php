@@ -1,5 +1,6 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="utf-8">
@@ -26,10 +27,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Инфа</a>
+                        <a class="nav-link" href="/rules">Правила</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Обратная связь</a>
+                        <a class="nav-link" href="/servers">Сервера</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/forum/">Форум</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/donate">Донат</a>
                     </li>
                 </ul>
             </div>

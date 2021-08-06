@@ -1,7 +1,7 @@
 <?php
 
 namespace application\models;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Model;
 
 class Main extends Model {
@@ -35,6 +35,26 @@ class Main extends Model {
 			'start' => ((($route['page'] ?? 1) - 1) * $max),
 		];
 		return $this->db->row('SELECT * FROM posts ORDER BY id DESC LIMIT :start, :max', $params);
+	}
+
+
+
+	public function serversList() {
+		return  $this->db->row('SELECT * FROM servers');	
+	}
+
+	public function getServersInfo() {
+		$list = $this->serversList();	
+		$result = [];
+		foreach ($list as $item) {
+			if (!empty($item['visibility'])) {				
+				unset($item['rcon_port']);
+				unset($item['rcon_password']);
+				unset($item['visibility']);
+				array_push($result, $item);
+			}			
+		}
+		return $result;
 	}
 
 }

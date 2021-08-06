@@ -1,7 +1,7 @@
 <?php
 
 namespace application\models;
-
+if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Model;
 
 class User extends Model {

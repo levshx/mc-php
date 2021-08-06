@@ -1,3 +1,4 @@
+<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
 <!-- Set Skin for the Viewer -->
 <style>
 	#skin-viewer *{ background-image: url('<?=$skinUrl ?>'); }
