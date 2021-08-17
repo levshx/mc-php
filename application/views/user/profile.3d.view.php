@@ -1,11 +1,8 @@
 <?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
-<!-- Set Skin for the Viewer -->
 <style>
 	#skin-viewer *{ background-image: url('<?=$skinUrl ?>'); }
 	#skin-viewer .cape{ background-image: url('<?=$cloakUrl?>'); }
 </style>
-
-<!-- Skin Viewer HTML Elements -->
 <div id="skin-viewer" class="mc-skin-viewer-11x legacy legacy-cape spin">
 	<div class="player">
 		<!-- Head -->

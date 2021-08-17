@@ -13,7 +13,7 @@ class User extends Model {
 			'login' => $post['login'],
 			'password' => md5($post['password']),
 		];
-		$user = $this->db->row('SELECT * FROM user WHERE ( (login = :login OR email = :login) AND password = :password)', $params);	
+		$user = $this->db->row('SELECT * FROM users WHERE ( (login = :login OR email = :login) AND password = :password)', $params);	
 		if (count($user) > 0 ) {
 			return true;
 		} else {
@@ -27,7 +27,7 @@ class User extends Model {
 			'login' => $post['login'],
 			'password' => md5($post['password']),
 		];
-		return  $this->db->row('SELECT * FROM user WHERE ( (login = :login OR email = :login) AND password = :password)', $params)[0];	
+		return  $this->db->row('SELECT * FROM users WHERE ( (login = :login OR email = :login) AND password = :password)', $params)[0];	
 	}
 
 	public function skinUrl($id) {
@@ -52,7 +52,7 @@ class User extends Model {
 		$params = [
 			'id' => $id,			
 		];
-		return  $this->db->row('SELECT * FROM user WHERE id = :id', $params)[0];	
+		return  $this->db->row('SELECT * FROM users WHERE id = :id', $params)[0];	
 	}
 
 	public function createUser($post) {
@@ -62,7 +62,7 @@ class User extends Model {
 			'password' => md5($post['password']),	
 			'email' => $post['email'],			
 		];
-		$this->db->row('INSERT INTO user (id, login, password, email) VALUES (:id, :login, :password, :email);', $params);
+		$this->db->row('INSERT INTO users (id, login, password, email) VALUES (:id, :login, :password, :email);', $params);
 		return $this->db->lastInsertId();	
 	}
 
@@ -81,6 +81,24 @@ class User extends Model {
 		} elseif ($post['password'] != $post['password2']) {
 			$this->error = 'Пароли не совпадают';
 			return false;
+		} else  {
+			$params1 = [	
+				'login' => $post['login'],						
+			];
+			$DB_login = $this->db->row('SELECT * FROM user WHERE login = :login', $params1);
+			if (count($DB_login)>0) {
+				$this->error = 'Пользователь с таким логином уже существует';
+				return false;
+			} 
+			$params2 = [	
+				'email' => $post['email'],						
+			];
+			$DB_email = $this->db->row('SELECT * FROM user WHERE email = :email', $params2);
+			if (count($DB_email)>0) {
+				$this->error = 'Пользователь с таким Email уже существует';
+				return false;
+			} 
+
 		}
 		return true;
 	}

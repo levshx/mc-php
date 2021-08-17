@@ -26,4 +26,37 @@ a{color:#333;-webkit-transition:all .2s;-moz-transition:all .2s;transition:all .
     box-shadow: 0px 3px 6px 0px rgba(110,110,110,.1);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    overflow: hidden;
+}
+
+.account_info_item {
+    width: 418px;
+    height: 38px;
+    padding: 0 0 0 15px;
+    margin: 0 0 0 19px;
+}
+
+.account_info_item_title {
+    width: 100px;
+    color: #6d6967;
+    font-size: 15px;
+    line-height: 38px;
+    padding: 0 11px 0 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.account_info_item_content {
+    display: inline-block;
+    line-height: 38px;
+}
+
+a.profile_mini_button {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    background: #3fc1d1;
+    line-height: 29px;
+    padding: 0 5px;
+    margin: 0 0 0 10px;
 }

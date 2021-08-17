@@ -1,4 +1,6 @@
-<?php if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); } ?>
+<?php if (!defined("MCPROJECT")) {
+    exit("Hacking Attempt!");
+} ?>
 <?php
 
 use application\models\User;
@@ -6,7 +8,7 @@ use application\models\User;
 $model = new User; ?>
 <?php if (isset($_SESSION['admin'])) : ?>
     <hr>
-    <a href="/admin/login" class="btn btn-danger btn-block">Панель админа</a>
+    <a href="/admin/" class="btn btn-danger btn-block">Панель админа</a>
     <hr>
 <?php endif; ?>
 <?php if (isset($_SESSION['authorize']['id'])) : ?>
@@ -17,25 +19,31 @@ $model = new User; ?>
         <div class="col-lg-9">
             <ul class="info" style="padding-left: 1px;font-size: 16px;">
                 <li>
-                    <i class="fa fa-user"></i> 
+                    <i class="fa fa-user"></i>
                     <b>Логин:</b>
                     <?= $model->getUserById($_SESSION['authorize']['id'])['login'] ?>
-                </li>                
+                </li>
                 <li>
-                    <i class="fa fa-money"></i> 
-                    <b>Баланс:</b> 
+                    <i class="fa fa-money"></i>
+                    <b>Баланс:</b>
                     <?= $model->getUserById($_SESSION['authorize']['id'])['money'] ?> р.
-                </li>  
+                </li>
                 <li>
-                    <i class="fa fa-btc"></i> 
-                    <b>Баланс:</b> 
+                    <i class="fa fa-btc"></i>
+                    <b>Баланс:</b>
                     <?= $model->getUserById($_SESSION['authorize']['id'])['vmoney'] ?> р.
-                </li>                
-                
-            </ul>            
+                </li>
+
+            </ul>
         </div>
     </div>
-    <form action="/logout" method="post">
+    <a href="/pay" class="btn btn-outline-warning btn-block">Пополнить счёт</a>
+
+    <a href="/profile" class="btn btn-success btn-block">Профиль</a>
+
+
+
+    <form action="/logout" class="mt-2" method="post">
         <div class="form-group">
             <div class="input-group">
                 <input type="submit" class="btn btn-danger btn-block" name="submit" value="Выход">

@@ -36,12 +36,16 @@ class UserController extends Controller {
 			}
 			$user = $this->model->getUserInAuth($_POST);
 			$_SESSION['authorize']['id'] = $user['id'];
+			if ($user['perm'] == 1) {
+				$_SESSION['admin'] = true;
+			}
 			$this->view->reload();
 		}		
 	}
 
 	public function logoutAction() {		
 		unset($_SESSION['authorize']['id']);
+		unset($_SESSION['admin']);
 		$this->view->location('main/index/1');
 	}
 

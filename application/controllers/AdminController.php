@@ -15,23 +15,6 @@ class AdminController extends Controller
 		$this->view->layout = 'admin';
 	}
 
-	/**
-	 * Обработка входа в Админ Панель.
-	 */
-	public function loginAction()
-	{
-		if (isset($_SESSION['admin'])) {
-			$this->view->redirect('admin/');
-		}
-		if (!empty($_POST)) {
-			if (!$this->model->loginValidate($_POST)) {
-				$this->view->message('error', $this->model->error);
-			}
-			$_SESSION['admin'] = true;
-			$this->view->location('admin/');
-		}
-		$this->view->render('Вход');
-	}
 
 	/**
 	 * Обработка запроса выхода из админ панели.
@@ -39,6 +22,7 @@ class AdminController extends Controller
 	public function logoutAction()
 	{
 		unset($_SESSION['admin']);
+		unset($_SESSION['authorize']['id']);
 		$this->view->redirect('main/index/1');
 	}
 
