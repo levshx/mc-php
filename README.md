@@ -22,16 +22,18 @@ Minecraft Project site admin tool
 `Minecraft` `PHP` `RCON` `MVC` `Server`
 
 # Demo
+ * User profile:
 
-![Demo](resources/file-0.jpeg)
+ ![Demo](resources/file-0.jpeg)
 
-Страница профиля  
+ * Admin panel:
+
 ![Demo](resources/file-1.jpeg)
 
-Панель администратора  
+ * RCON server tools:
+
 ![Demo](resources/file-2.jpeg)
 
-RCON панель управления сервером
 
 # Advantages
 
