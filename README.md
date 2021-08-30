@@ -12,6 +12,11 @@ Minecraft Project site admin tool
 [![Github top language](https://img.shields.io/github/languages/top/levshx/mc-php)](https://github.com/levshx/mc-php/)
 [![Github license](https://img.shields.io/github/license/levshx/mc-php)](https://github.com/levshx/mc-php/)
 
+# Used
+ * https://github.com/php-youtube/php-framework (see more [MVC Tutorial](https://youtube.com/playlist?list=PLB8wmVoWIIx6yflr2Pf3jcRi-DtWi3xmk "youtube"))
+ * https://github.com/xPaw/PHP-Minecraft-Query
+ * https://github.com/Rauks/Minecraft-RCON
+
 # Tags
 
 `Minecraft` `PHP` `RCON` `MVC` `Server`
