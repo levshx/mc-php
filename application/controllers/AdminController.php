@@ -5,6 +5,7 @@ if(!defined("MCPROJECT")){ exit("Hacking Attempt!"); }
 use application\core\Controller;
 use application\lib\Pagination;
 use application\models\Main;
+use application\models\User;
 
 class AdminController extends Controller
 {
@@ -186,5 +187,38 @@ class AdminController extends Controller
 			header('Content-Type: application/json');
 			exit(json_encode($response, JSON_UNESCAPED_UNICODE));
 		}
+	}
+
+
+	/**
+	 * Users pages
+	 */
+	public function usersAction()
+	{
+		$pagination = new Pagination($this->route, $this->model->usersCount());
+		$vars = [
+			'pagination' => $pagination->get(),
+			'list' => $this->model->usersList($this->route),
+		];
+		$this->view->render('Пользователи', $vars);
+	}
+
+	/**
+	 * Обработка запроса редактирования пользователя.
+	 */
+	public function editUserAction()
+	{	
+		if (!$this->model->isUserExists($this->route['id'])) {
+			$this->view->errorCode(404);
+		}
+		if (!empty($_POST)) {			
+			$this->model->userEdit($_POST, $this->route['id']);			
+			$this->view->message('success', 'Сохранено');
+		}
+		$user = new User();
+		$vars = [
+			'data' => $user->getUserById($this->route['id']),
+		];
+		$this->view->render('Редактировать пост', $vars);
 	}
 }

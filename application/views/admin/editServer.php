@@ -15,10 +15,10 @@
                     </div>
                     <div class="form-group">
                         <label>PVP:</label><br>
-                        <input type="radio" id="on" name="pvp" value="1" <?php if ($data['pvp']=="1") {echo "checked";} ?>>
-                        <label for="on">Включено</label><br>
-                        <input type="radio" id="off" name="pvp" value="0" <?php if ($data['pvp']=="0") {echo "checked";} ?>>
-                        <label for="off">Выключено</label><br>
+                        <input type="radio" id="onPVP" name="pvp" value="1" <?php if ($data['pvp']=="1") {echo "checked";} ?>>
+                        <label for="onPVP">Включено</label><br>
+                        <input type="radio" id="offPVP" name="pvp" value="0" <?php if ($data['pvp']=="0") {echo "checked";} ?>>
+                        <label for="offPVP">Выключено</label><br>
                     </div>
                     <div class="form-group">
                         <label>Дата вайпа:</label>
@@ -54,10 +54,10 @@
                     </div>
                     <div class="form-group">
                         <label>Видимость сервера:</label><br>
-                        <input type="radio" id="on" name="visibility" value="1" <?php if ($data['visibility']=="1") {echo "checked";} ?>>
-                        <label for="on">Включена</label><br>
-                        <input type="radio" id="off" name="visibility" value="0" <?php if ($data['visibility']=="0") {echo "checked";} ?>>
-                        <label for="off">Выключена</label><br>
+                        <input type="radio" id="onVisibility" name="visibility" value="1" <?php if ($data['visibility']=="1") {echo "checked";} ?>>
+                        <label for="onVisibility">Включена</label><br>
+                        <input type="radio" id="offVisibility" name="visibility" value="0" <?php if ($data['visibility']=="0") {echo "checked";} ?>>
+                        <label for="offVisibility">Выключена</label><br>
                     </div>
                     <div class="form-group">
                         <label>Заменить иконку сервера (.jpg):</label>

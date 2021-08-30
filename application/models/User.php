@@ -85,7 +85,7 @@ class User extends Model {
 			$params1 = [	
 				'login' => $post['login'],						
 			];
-			$DB_login = $this->db->row('SELECT * FROM user WHERE login = :login', $params1);
+			$DB_login = $this->db->row('SELECT * FROM users WHERE login = :login', $params1);
 			if (count($DB_login)>0) {
 				$this->error = 'Пользователь с таким логином уже существует';
 				return false;
@@ -93,7 +93,7 @@ class User extends Model {
 			$params2 = [	
 				'email' => $post['email'],						
 			];
-			$DB_email = $this->db->row('SELECT * FROM user WHERE email = :email', $params2);
+			$DB_email = $this->db->row('SELECT * FROM users WHERE email = :email', $params2);
 			if (count($DB_email)>0) {
 				$this->error = 'Пользователь с таким Email уже существует';
 				return false;

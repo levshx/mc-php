@@ -17,6 +17,7 @@
                                 <tr>
                                     <th>Название</th>
                                     <th>RCON</th>
+                                    <th>Донат</th>
                                     <th>Редактировать</th>
                                     <th>Удалить</th>
                                 </tr>
@@ -24,6 +25,7 @@
                                     <tr>
                                         <td><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></td>
                                         <td><a href="/admin/rcon/<?php echo $val['id']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-terminal"></i>RCON</a></td>
+                                        <td><a href="/admin/donates/<?php echo $val['id']; ?>" class="btn btn-outline-warning">Донат</a></td>
                                         <td><a href="/admin/editServer/<?php echo $val['id']; ?>" class="btn btn-primary">Редактировать</a></td>
                                         <td><a href="/admin/deleteServer/<?php echo $val['id']; ?>" class="btn btn-danger">Удалить</a></td>
                                     </tr>

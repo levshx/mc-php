@@ -41,6 +41,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/launcher">
+                            <i class="fa fa-fw fa-download"></i>
+                            <span class="nav-link-text">Лаунчер</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/admin/stat">
                             <i class="fa fa-fw fa-area-chart"></i>
                             <span class="nav-link-text">Статистика</span>

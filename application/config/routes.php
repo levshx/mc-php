@@ -76,7 +76,7 @@ return [
 		'controller' => 'admin',
 		'action' => 'users',
 	],
-	'admin/user/{id:\d+}' => [
+	'admin/editUser/{id:\d+}' => [
 		'controller' => 'admin',
 		'action' => 'editUser',
 	],

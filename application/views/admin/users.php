@@ -16,7 +16,7 @@
                             </tr>
                             <?php foreach ($list as $val) : ?>
                                 <tr>
-                                    <td><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></td>
+                                    <td><?php echo htmlspecialchars($val['login'], ENT_QUOTES); ?></td>
                                     <td><a href="/admin/editUser/<?php echo $val['id']; ?>" class="btn btn-primary">Редактировать</a></td>
                                     <td><a href="/admin/deleteUser/<?php echo $val['id']; ?>" class="btn btn-danger">Удалить</a></td>
                                 </tr>
