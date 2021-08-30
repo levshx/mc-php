@@ -4,6 +4,7 @@ define('MCPROJECT', 'TEST');
 require 'application/lib/Dev.php';
 
 use application\core\Router;
+// sosat
 
 spl_autoload_register(function($class) {
     $path = str_replace('\\', '/', $class.'.php');
