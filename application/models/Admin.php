@@ -75,7 +75,7 @@ class Admin extends Model
 	{
 		move_uploaded_file($path, 'public/materials/servers/' . $id . '.jpg');
 	}
-
+ 
 	public function isPostExists($id)
 	{
 		$params = [
