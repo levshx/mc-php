@@ -57,7 +57,7 @@ class UserController extends Controller {
 
 			if ($this->model->skinUploadImage($tmp_name, $size, $user_id))	
 			{
-				$this->view->message('error', "Скин загружен (Чтобы увидеть в браузере сделайте жёсткую перезагрузку Ctrl+F5)");
+				$this->view->message('success', "Скин загружен (Чтобы увидеть в браузере сделайте жёсткую перезагрузку Ctrl+F5)");
 			}	
 			else
 			{
@@ -79,7 +79,7 @@ class UserController extends Controller {
 
 			if ($this->model->cloakUploadImage($tmp_name, $size, $user_id))	
 			{
-				$this->view->message('error', "Плащ загружен (Чтобы увидеть изменения в браузере сделайте жёсткую перезагрузку Ctrl+F5)");
+				$this->view->message('success', "Плащ загружен (Чтобы увидеть изменения в браузере сделайте жёсткую перезагрузку Ctrl+F5)");
 			}	
 			else
 			{
