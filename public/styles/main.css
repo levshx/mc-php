@@ -60,3 +60,7 @@ a.profile_mini_button {
     padding: 0 5px;
     margin: 0 0 0 10px;
 }
+
+.form-control {
+    border-radius: 0;
+}

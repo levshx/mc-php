@@ -8,6 +8,8 @@ return [
 	],
 	'authorize' => [
 		'profile',
+		'skinUpload',
+		'cloakUpload',
 	],
 	'guest' => [
 		

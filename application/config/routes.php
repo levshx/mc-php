@@ -35,6 +35,14 @@ return [
 		'controller' => 'user',
 		'action' => 'profile',		
 	],
+	'skinUpload' => [
+		'controller' => 'user',
+		'action' => 'skinUpload',		
+	],
+	'cloakUpload' => [
+		'controller' => 'user',
+		'action' => 'cloakUpload',		
+	],
 	// AdminController
 	'admin/login' => [
 		'controller' => 'admin',

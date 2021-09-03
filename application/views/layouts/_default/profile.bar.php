@@ -17,7 +17,7 @@ $model = new User; ?>
             <div class="mc-face-viewer-8x" style="background-image:url('<?= $model->skinUrl($_SESSION['authorize']['id']) ?>')"></div>
         </div>
         <div class="col-lg-9">
-            <ul class="info" style="padding-left: 1px;font-size: 16px;">
+            <ul class="info" style="padding-left: 1px;font-size: 16px; list-style-type: none;">
                 <li>
                     <i class="fa fa-user"></i>
                     <b>Логин:</b>

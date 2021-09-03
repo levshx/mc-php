@@ -7,7 +7,6 @@ use application\core\Controller;
 class UserController extends Controller {
 
 	public function profileAction() {
-
 		$vars = [
 			'user' => $this->model->getUserById($_SESSION['authorize']['id']),
 			'skinUrl' => $this->model->skinUrl($_SESSION['authorize']['id']),
@@ -47,6 +46,50 @@ class UserController extends Controller {
 		unset($_SESSION['authorize']['id']);
 		unset($_SESSION['admin']);
 		$this->view->location('main/index/1');
+	}
+
+	public function skinUploadAction() {
+		if ($_FILES['skin']['tmp_name'])
+		{
+			$tmp_name = $_FILES['skin']['tmp_name'];
+			$user_id = $_SESSION['authorize']['id'];			
+			$size = $_FILES['skin']['size'];
+
+			if ($this->model->skinUploadImage($tmp_name, $size, $user_id))	
+			{
+				$this->view->message('error', "Скин загружен");
+			}	
+			else
+			{
+				$this->view->message('error', $this->model->error);
+			}
+		}
+		else
+		{
+			$this->view->message('error', "Файл не загружен");	
+		}
+	}
+
+	public function cloakUploadAction() {
+		if ($_FILES['cloak']['tmp_name'])
+		{
+			$tmp_name = $_FILES['cloak']['tmp_name'];
+			$user_id = $_SESSION['authorize']['id'];			
+			$size = $_FILES['cloak']['size'];
+
+			if ($this->model->cloakUploadImage($tmp_name, $size, $user_id))	
+			{
+				$this->view->message('error', "Плащ загружен");
+			}	
+			else
+			{
+				$this->view->message('error', $this->model->error);
+			}
+		}
+		else
+		{
+			$this->view->message('error', "Файл не загружен");	
+		}
 	}
 
 }
