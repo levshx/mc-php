@@ -2,7 +2,7 @@
 
 <!-- # Short Description -->
 
-Minecraft Project site admin tool
+Minecraft Project
 
 <!-- # Badges -->
 
