@@ -59,8 +59,4 @@ TO DO
 
 - [levshx](https://github.com/levshx)
 
-# Users
-
-- bng
-
 <!-- CREATED_BY_LEADYOU_README_GENERATOR -->
